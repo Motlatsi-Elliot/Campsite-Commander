@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#121212">
+
+    <!-- SPLASH SCREEN -->
+    <LinearLayout
+        android:id="@+id/screenSplash"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="#121212"
+        android:visibility="gone">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🏕️"
+            android:textSize="96sp"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:letterSpacing="0.15"
+            android:text="CAMPSITE"
+            android:textColor="#9D89EF8A"
+            android:textSize="40sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="COMMANDER"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:textColor="#9D89EF8A"
+            android:letterSpacing="0.15"/>
+
+        <!-- Tagline -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pack smart. Camp better."
+            android:textSize="16sp"
+            android:textColor="#AAAA"
+            android:layout_marginTop="12dp"/>
+
+        <!-- Loading indicator -->
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:indeterminateTint="#FF6D00"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Loading base camp..."
+            android:textSize="13sp"
+            android:textColor="#777777"
+            android:layout_marginTop="12dp"/>
+
+    </LinearLayout>
+
+    // MAIN SCREEN
+    <LinearLayout
+        android:id="@+id/screenMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#121212"
+        android:padding="24dp"
+        android:visibility="visible">
+
+        <!-- Header bar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="32dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="🏕️"
+                android:textSize="100dp"
+                android:textStyle="bold"
+                android:textColor="#FF6D00"/>
+        </LinearLayout>
+
+        <!-- ── Total Items Card ── -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#1E1E1E"
+            android:padding="24dp"
+            android:layout_marginBottom="32dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📦 Packing Status"
+                android:textSize="13dp"
+                android:textColor="#AAAAAA"
+                android:textAllCaps="true"
+                android:letterSpacing="0.1"/>
+
+            <!-- Total items – updated by a loop in Kotlin -->
+            <TextView
+                android:id="@+id/tvTotalItems"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Items Packed: 0"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="8dp"/>
+        </LinearLayout>
+
+        <!-- ── Add Gear button ── -->
+        <Button
+            android:id="@+id/btnAddGear"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#9D068509"
+            android:text="Add Gear / Supplies"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:textSize="19sp" />
+
+        <!-- ── View Detailed List button ── -->
+        <Button
+            android:id="@+id/btnViewDetail"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="📋  View Full Gear List"
+            android:textSize="16sp"
+            android:textColor="#FF6D00"
+            android:backgroundTint="#1E1E1E"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Spacer pushes footer to bottom -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <!-- Footer -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Stay prepared. Stay safe. 🏕️"
+            android:textSize="12sp"
+            android:textColor="#444444"/>
+
+    </LinearLayout>
+
+
+    <!-- SCREEN 3 – DETAILED VIEW SCREEN -->
+    <LinearLayout
+        android:id="@+id/screenDetailedView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#121212"
+        android:visibility="gone">
+
+        <!-- Sticky header row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="#1A1A1A"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="📋 Full Gear List"
+                android:textColor="#C4E9E5E1"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Scrollable gear list built dynamically by Kotlin loop -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="16dp">
+
+            <!-- LinearLayout populated in code using parallel arrays + loop -->
+            <LinearLayout
+                android:id="@+id/llGearList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"/>
+
+        </ScrollView>
+
+        <!-- ── Back to Base button (navigation) ── -->
+        <Button
+            android:id="@+id/btnBackToBase"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_margin="16dp"
+            android:text="⬅️  Back to Base"
+            android:textSize="19sp"
+            android:textStyle="bold"
+            android:textColor="#ffff"
+            android:backgroundTint="#9D068509"/>
+    </LinearLayout>
+
+</FrameLayout>
+
