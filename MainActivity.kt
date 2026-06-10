@@ -164,12 +164,12 @@ class MainActivity : AppCompatActivity() {
     fun showAddGearForm() {
         val formLayout = LinearLayout(this)
         formLayout.orientation = LinearLayout.VERTICAL
-        formLayout.setPadding(50, 30, 50, 10)
+        formLayout.setPadding(50, 30, 50, 10) //Set the spacing/padding on the left, top, right, and bottom of the form
 
         val inputName = EditText(this)
         inputName.hint = "Item name (e.g. Rope)"
         inputName.setTextColor(COLOR_LABEL_TEXT)
-        inputName.setHintTextColor(COLOR_BODY_TEXT)
+        inputName.setHintTextColor(COLOR_BODY_TEXT) //changes the colour of the hint text
 
         val labelCategory = TextView(this)
         labelCategory.text = "Category:"
@@ -206,8 +206,8 @@ class MainActivity : AppCompatActivity() {
                 val category = spinnerCategory.selectedItem.toString()
                 val notes    = inputNotes.text.toString()
 
-                val quantityText = inputQuantity.text.toString()
-                val quantity: Int = if (quantityText == "") 1 else quantityText.toInt()
+                val quantityText = inputQuantity.text.toString()//convert quantity to an integer so that it can be added to the array
+                val quantity: Int = if (quantityText == "") 1 else quantityText.toInt() // if  quantity is blank, default to 1
 
                 if (name == "") { // Error handing, ensures that is the user ever tries to add an empty item name, the error message will appear`
                     Toast.makeText(this, "Please enter an item name!", Toast.LENGTH_SHORT).show() // Toast message
@@ -237,10 +237,10 @@ class MainActivity : AppCompatActivity() {
         gearListContainer.removeAllViews()
 
         // If no items exist yet, show a friendly message
-        if (itemNames.size == 0) {
+        if (itemNames.size == 0) { //if the array is empty
             val emptyMsg = TextView(this)
             emptyMsg.text = "🌿  No gear yet — go add some!"
-            emptyMsg.textSize = 15f
+            emptyMsg.textSize = 15f //set the text size
             emptyMsg.setTextColor(COLOR_NOTES_TEXT)
             emptyMsg.setPadding(0, 32, 0, 0)
             gearListContainer.addView(emptyMsg)
@@ -248,14 +248,14 @@ class MainActivity : AppCompatActivity() {
         }
 
         // ── LOOP: build one card per item ────────────────
-        for (i in 0 until itemNames.size) {
+        for (i in 0 until itemNames.size) { //loop through all the arrays to build a card for each item
 
             // ── Outer card container ──────────────────────
-            val card = LinearLayout(this)
+            val card = LinearLayout(this) // create a card variable that will be a LinearLayout and give it all the Necessary properties
             card.orientation = LinearLayout.VERTICAL
             card.setBackgroundColor(COLOR_CARD_BG)
 
-            val cardParams = LinearLayout.LayoutParams(
+            val cardParams = LinearLayout.LayoutParams( //  create a card layout parameters variable that will be a LinearLayout and give it all the Necessary properties
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
             )
@@ -321,7 +321,7 @@ class MainActivity : AppCompatActivity() {
             textNotes.setPadding(0, 4, 0, 0)
 
             // ── Assemble the card ──────────────────────────
-            innerPad.addView(textName)
+            innerPad.addView(textName) // add the rows to the card
             innerPad.addView(divider)
             innerPad.addView(textCategory)
             innerPad.addView(textQuantity)
