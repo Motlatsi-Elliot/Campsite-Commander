@@ -53,6 +53,6 @@ This application was engineered specifically to demonstrate foundational softwar
 ## 🎨 Visual Design Profile
 
 The app implements a custom modern dark mode layout inspired by deep-forest environments:
-* **Base Canvas Background:** Midnight Forest (`#0D1710`)
-* **Interactive Container Elements:** Slate Moss Green (`#14261A` / `#18221b`)
+* **Base Canvas Background:** Midnight Forest (`#121212`)
+* **Interactive Container Elements:** Slate Moss Green (`#1E1E1E`)
 * **Primary Accents & Headings:** Flame Amber Gold (`#FFB300`)
